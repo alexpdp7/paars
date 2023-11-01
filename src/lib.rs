@@ -28,6 +28,8 @@ pub fn build_image(dir: PathBuf, docker_config: PathBuf, image: String) {
             .arg("run")
             .arg("--rm")
             .arg("-v")
+            .arg("-e")
+            .arg("CNB_PLATFORM_API=0.12")
             .arg(format!(
                 "{}:/workspace",
                 dir.as_path().canonicalize().unwrap().display()
